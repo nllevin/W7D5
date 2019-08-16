@@ -5,28 +5,28 @@ DROP TABLE IF EXISTS
 
 CREATE TABLE cats (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    color VARCHAR(255),
-    breed VARCHAR(255)
+    name VARCHAR(255) NOT NULL,
+    color VARCHAR(255) NOT NULL,
+    breed VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE toys (
     id SERIAL PRIMARY KEY,
-    price DECIMAL,
-    color VARCHAR(255),
-    name VARCHAR(255)
+    price DECIMAL NOT NULL,
+    color VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE cattoys (
     id SERIAL PRIMARY KEY,
-    cat_id INT REFERENCES cats(id),
-    toy_id INT REFERENCES toys(id)
+    cat_id INT NOT NULL REFERENCES cats(id),
+    toy_id INT NOT NULL REFERENCES toys(id)
 );
 
 INSERT INTO
   cats (name, color, breed)
 VALUES
-  ('Niles Mowgli Kitty Prancer Schreiber', 'orange', 'Tabby'),
+  ('Niles', 'orange', 'Tabby'),
   ('Smokey', 'white', 'Himalayan'),
   ('Athena', 'black', 'Bombay'),
   ('Lola', 'gray', 'Exotic shorthair'),
